@@ -82,6 +82,13 @@ namespace AntiKenerlBlog
                 options.UseTinyMCE();
                 options.UseIdentity();
             });
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "privacy",
+                    pattern: "{controller=Privacy}/{action=Privacy}");
+            });
         }
     }
 }
