@@ -1,23 +1,24 @@
-@model StandardArchive
+@page
+@model ArchivePage<StandardArchive, Piranha.Models.PostInfo>
 @{
-    ViewData["Title"] = !string.IsNullOrEmpty(Model.MetaTitle) ? Model.MetaTitle : Model.Title;
-    var hasImage = Model.PrimaryImage.HasValue;
+    ViewData["Title"] = !string.IsNullOrEmpty(Model.Data.MetaTitle) ? Model.Data.MetaTitle : Model.Data.Title;
+    var hasImage = Model.Data.PrimaryImage.HasValue;
 
     var posts = Model.Archive.Posts.Count;
 }
 @section head {
-    @WebApp.MetaTags(Model)
+    @WebApp.MetaTags(Model.Data)
 }
 
-<header @(hasImage ? "class=has-image" : "") @(hasImage ? $"style=background-image:url({ @Url.Content(WebApp.Media.ResizeImage(Model.PrimaryImage, 1920, 400)) })" : "")>
+<header @(hasImage ? "class=has-image" : "") @(hasImage ? $"style=background-image:url({ @Url.Content(WebApp.Media.ResizeImage(Model.Data.PrimaryImage, 1920, 400)) })" : "")>
     <div class="dimmer"></div>
     <div class="container text-center">
-        <h1>@Model.Title</h1>
-        @if (!string.IsNullOrWhiteSpace(Model.Excerpt))
+        <h1>@Model.Data.Title</h1>
+        @if (!string.IsNullOrWhiteSpace(Model.Data.Excerpt))
         {
             <div class="row justify-content-center">
                 <div class="col-lg-8 lead">
-                    @Html.Raw(Model.Excerpt)
+                    @Html.Raw(Model.Data.Excerpt)
                 </div>
             </div>
         }
@@ -25,7 +26,7 @@
 </header>
 
 <main class="archive">
-    @foreach (var block in Model.Blocks)
+    @foreach (var block in Model.Data.Blocks)
     {
         <div class="block @block.CssName()">
             <div class="container">
@@ -53,13 +54,13 @@
                                 <h3>@post.Title</h3>
                                 <p class="post-meta">
                                     <span>
-                                        In <a href="@Model.Permalink/category/@post.Category.Slug">@post.Category.Title</a>
+                                        In <a href="@Model.Data.Permalink/category/@post.Category.Slug">@post.Category.Title</a>
                                     </span>
                                     <span>
                                         Tags
                                         @foreach (var tag in post.Tags)
                                         {
-                                            <a href="@Model.Permalink/tag/@tag.Slug">#@tag.Slug</a>
+                                            <a href="@Model.Data.Permalink/tag/@tag.Slug">#@tag.Slug</a>
                                         }
                                     </span>
                                     @if (post.IsPublished)

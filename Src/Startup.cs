@@ -10,7 +10,7 @@ using Piranha.AspNetCore.Identity.SQLite;
 using Piranha.Data.EF.SQLite;
 using Piranha.Manager.Editor;
 
-namespace AntiKernelBlog
+namespace AntiKenerlBlog
 {
     public class Startup
     {

@@ -2,9 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>ae76d0b3-8ba0-4876-ada6-73d270ab110f</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.3.0" />
+    <PackageReference Include="Azure.Storage.Files.Shares" Version="12.1.0" />
+    <PackageReference Include="Azure.Storage.Queues" Version="12.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Azure" Version="1.0.0" />
     <PackageReference Include="Piranha" Version="8.4.2" />
     <PackageReference Include="Piranha.AspNetCore" Version="8.4.1" />
     <PackageReference Include="Piranha.AspNetCore.Identity.SQLite" Version="8.4.0" />
