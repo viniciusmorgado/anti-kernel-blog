@@ -9,9 +9,9 @@ namespace AntiKernelBlog.Controllers
     public class PrivacyController : Controller
     {
         [Route("/privacy")]
-        public IActionResult Privacy()
+        public async Task<IActionResult> Privacy()
         {
-            return View();
+            return await Task.Run(() => View());
         }
     }
 }
