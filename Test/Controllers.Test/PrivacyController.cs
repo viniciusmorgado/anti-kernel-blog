@@ -1,16 +1,24 @@
-﻿using Xunit;
+﻿using AntiKernelBlog.Controllers;
+using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Threading.Tasks;
+using Xunit;
 
 namespace AntiKernelTest.Controllers.Test
 {
-    internal class PrivacyController
+    public class PrivacyController
     {
-        public PrivacyController()
-        {
-            [Fact]
-            void ReturnViewPrivacy()
-            {
-                // Test
-            }
-        }
+
+        //[Fact]
+        //public void CheckIfIsNull()
+        //{
+        //    #region Arrange
+        //    var controller = new PrivacyController();
+        //    #endregion
+
+        //    #region Action
+        //    var resultTest = controller.Privacy();
+        //    #endregion
+        //}
     }
 }
